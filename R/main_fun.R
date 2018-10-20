@@ -30,7 +30,7 @@ ctl <- function(df){
 #' @export
 LDx <- function(fit.model, x){
   mm <- dose.p(fit.model, p = x)
-  Dx <- 10^c(mm + c(0, -1.96, 1.96) * attr(mm, "SE")) 
+  Dx <- 10^c(mm + c(0, -1.96, 1.96) * as.vector(attr(mm, "SE"))) 
   return(Dx)
 }
 
