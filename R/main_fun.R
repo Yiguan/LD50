@@ -59,8 +59,12 @@ LD_cal <- function(dfr){
   cat("\n[2] Summary of Model: \n")
   print(summary(dfr.fit)[12], row.names = F)
   
-  chi <- data.frame("Chi_square" = dfr.fit$deviance, "df" = dfr.fit$df.residual, 
-                    "P_value" = pchisq(dfr.fit$deviance, df = dfr.fit$df.residual,lower.tail = F))
+  # chi <- data.frame("Chi_square" = dfr.fit$deviance, "df" = dfr.fit$df.residual, 
+  #                   "P_value" = pchisq(dfr.fit$deviance, df = dfr.fit$df.residual,lower.tail = F))
+  chi <- data.frame("Chi_square" =sum(residuals(dfr.fit, type = "pearson")^2), 
+                    "df" = dfr.fit$df.residual, 
+                    "P_value" = pchisq(sum(residuals(dfr.fit, type = "pearson")^2), df = dfr.fit$df.residual,lower.tail = F))
+
   cat("\n[3] Chi-square test for goodness of fit:\n")
   print(chi, row.names = F)
   
