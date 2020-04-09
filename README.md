@@ -37,7 +37,7 @@ log_c       1.118938  0.1450051 7.716541 1.195288e-14
 
 [3] Chi-square test for goodness of fit:
  Chi_square df   P_value
-   2.060938  4 0.7245516
+  2.025417  4 0.7310838
 
 [4] Estimate of LD50-LD99: 
         estimate        lci       uci
